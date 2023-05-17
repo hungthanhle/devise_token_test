@@ -60,4 +60,7 @@ DeviseTokenAuth.setup do |config|
   # devise confirmable module. If you want to use devise confirmable module and
   # send email, set it to true. (This is a setting for compatibility)
   # config.send_confirmation_email = true
+
+  # bug: https://stackoverflow.com/questions/24148723/undefined-method-devise-for-user
+  require 'devise/orm/active_record'
 end

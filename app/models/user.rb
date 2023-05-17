@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+  
+  enum status: {
+    active: 0,
+    inactive: 1
+  }
+
+  enum role: {
+    admin: 0,
+    user: 1
+  }
 end

@@ -7,6 +7,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
       t.string :uid, :null => false, :default => ""
 
       ## Database authenticatable
+      t.string :email, :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
       ## Recoverable
@@ -30,9 +31,8 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
 
       ## User Info
       t.string :name
-      t.string :nickname
-      t.string :image
-      t.string :email
+      t.integer :role
+      t.integer :status
 
       ## Tokens
       t.text :tokens
