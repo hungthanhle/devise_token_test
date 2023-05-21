@@ -9,4 +9,24 @@ content-type: application/json
 
 ###
 GET http://localhost:3000/users HTTP/1.1
-Authorization: Bearer eyJhY2Nlc3MtdG9rZW4iOiI5UjE0R0hUYkxZMDRDeHlxT3RmZGNRIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkFoYnZLc1lSODdwcW9QX29iUi1vakEiLCJleHBpcnkiOiIxNjg1NTQ2Njc1IiwidWlkIjoiZXhhbXBsZS0xQHJhaWxzdHV0b3JpYWwub3JnIn0=
+Authorization: Bearer eyJhY2Nlc3MtdG9rZW4iOiJEem1QSC1vbkhuTENEa1FBR1hPSEx3IiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IktHdVlrM2lmamdCTTltMHVWNlZzRVEiLCJleHBpcnkiOiIxNjg1NTc3NDA2IiwidWlkIjoiZXhhbXBsZS0xQHJhaWxzdHV0b3JpYWwub3JnIn0==
+# Authorization và header session (dưới đây) được cấp sau mỗi request <- đều dùng được
+# (không chỉ sau khi log in) và ko close browser gì hết
+# cũng có hạn là 10 minutes như dưới
+
+
+# Epoch & Unix Timestamp Conversion - expire in 14 days
+# Rememberable chưa dùng đâu vì remember_created_at = null
+
+###
+GET http://localhost:3000/users HTTP/1.1
+
+# header session
+# after 10 minutes: ACCESS
+{
+    "access-token":"DzmPH-onHnLCDkQAGXOHLw",
+    "token-type":"Bearer",
+    "client":"KGuYk3ifjgBM9m0uV6VsEQ",
+    "expiry":"1685577406",
+    "uid":"example-1@railstutorial.org"
+}
