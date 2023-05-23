@@ -30,3 +30,16 @@ GET http://localhost:3000/users HTTP/1.1
     "expiry":"1685577406",
     "uid":"example-1@railstutorial.org"
 }
+
+###
+PUT http://localhost:3000/auth/password/ HTTP/1.1
+Authorization: Bearer eyJhY2Nlc3MtdG9rZW4iOiJDaXdKSzA3UUNxSVRFUFFaV3BaVHdnIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IlZNc3JMWnVZeHBTNkx3RVpwdERtdkEiLCJleHBpcnkiOiIxNjg2MDQyNTU1IiwidWlkIjoiZXhhbXBsZS0xQHJhaWxzdHV0b3JpYWwub3JnIn0=
+content-type: application/json
+# new password <-don't need old password>
+# database field of user: reset_password_token = nil
+{
+    "email": "example-1@railstutorial.org",
+    "password": "password",
+    "password_confirmation": "password",
+    "reset_password_token": "password"
+}

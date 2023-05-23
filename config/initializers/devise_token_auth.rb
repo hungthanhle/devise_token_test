@@ -1,24 +1,16 @@
 # frozen_string_literal: true
 
 DeviseTokenAuth.setup do |config|
-  # By default the authorization headers will change after each request. The #
+  # By default the authorization headers will change after each request. The 
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
   # each request.
-  config.change_headers_on_each_request = false #still insert to database field TOKENS if post email/password again
-  # not create new token for next another requests
-  # default expire 2 weeks
+  # config.change_headers_on_each_request = true
 
   # By default, users will need to re-authenticate after 2 weeks. This setting
   # determines how long tokens will remain valid after they are issued.
-  
-  config.token_lifespan = 3.weeks #expire 3 weeks >= 2 weeks
-  # not change time expire for next another requests
+  # config.token_lifespan = 2.weeks
 
-  # fail
-  # config.token_lifespan = 2.minutes #120.seconds #not insert to database field TOKENS if post email/password again
-  # not create new token/ response if post email/password
-  
   # Limiting the token_cost to just 4 in testing will increase the performance of
   # your test suite dramatically. The possible cost value is within range from 4
   # to 31. It is recommended to not use a value more than 10 in other environments.
@@ -26,7 +18,7 @@ DeviseTokenAuth.setup do |config|
 
   # Sets the max number of concurrent devices per user, which is 10 by default.
   # After this limit is reached, the oldest tokens will be removed.
-  # config.max_number_of_devices = 10 #
+  # config.max_number_of_devices = 10
 
   # Sometimes it's necessary to make several requests to the API at the same
   # time. In this case, each request in the batch will need to share the same
